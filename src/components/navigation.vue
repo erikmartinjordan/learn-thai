@@ -1,7 +1,7 @@
 <template>
     <div class = 'app__navigation'>
         <ul>
-            <router-link v-for = 'n in 3' :key = 'n' :to = "`/lesson/${n}`">Day {{ n }}</router-link>
+            <router-link v-for = 'n in total_lessons' :key = 'n' :to = "`/lesson/${n}`">Day {{ n }}</router-link>
         </ul>
         <div class = 'app__info'>
             Made with ♥ from Barcelona by Erik Martín, view on GitHub
@@ -11,7 +11,12 @@
 
 <script>
 export default {
-    name: 'navigation'
+    name: 'navigation',
+    data(){
+        return {
+            total_lessons: require.context('../lessons', false, /\.(vue)$/).keys().length
+        }
+    }
 }
 </script>
 
@@ -24,7 +29,7 @@ export default {
     height: 100vh;
     overflow-y: auto;
     padding: 2rem;
-    position: fixed;
+    position: sticky;
     width: 15%;
 }
 .app__navigation ul{

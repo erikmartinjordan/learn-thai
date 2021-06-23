@@ -1,12 +1,16 @@
 <template>
     <div class = 'app__main'>
         <navigation/>
-        <lesson :ka_krub = 'ka_krub' :select = 'select'/>
+        <div class = 'app__lesson'>
+            <lesson :ka_krub = 'ka_krub' :chan_pom = 'chan_pom' :select = 'select'/>
+            <pagenavigation/>
+        </div>
     </div>
 </template>
 
 <script>
 import navigation               from './components/navigation.vue'
+import pagenavigation           from './components/pagenavigation.vue'
 import { defineAsyncComponent } from 'vue'
 
 var lesson = window.location.href.split('/').pop()
@@ -15,6 +19,7 @@ export default {
     name: 'App',
     components: {
         navigation,
+        pagenavigation,
         lesson: defineAsyncComponent(() => import(`./lessons/${lesson}.vue`))
     },
     watch: {
@@ -25,21 +30,25 @@ export default {
     },
     data(){
         return {
-            ka_krub: ''
+            ka_krub: '',
+            chan_pom: ''
         }
     },
     methods: {
         select(gender){
             
             localStorage.setItem('gender', gender)
-            this.ka_krub = localStorage.gender === 'm' ? 'krub' : 'ka'
+            this.ka_krub  = localStorage.gender === 'm' ? 'krub' : 'ka'
+            this.chan_pom = localStorage.gender === 'm' ? 'pom'  : 'chan'
 
         }
     },
     mounted(){
         
-        if(localStorage.gender)
-            this.ka_krub = localStorage.gender === 'm' ? 'krub' : 'ka'
+        if(localStorage.gender){
+            this.ka_krub  = localStorage.gender === 'm' ? 'krub' : 'ka'
+            this.chan_pom = localStorage.gender === 'm' ? 'pom'  : 'chan'
+        }
 
     }
 
@@ -65,7 +74,7 @@ body{
     display: flex;
     width: 100%;
 }
-.app__content{
+.app__lesson{
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -73,7 +82,7 @@ body{
     max-width: 50rem;
     width: 90%;
 }
-.app__content button{
+.app__lesson button{
     background: none;
     border: .2rem solid black;    
     border-radius: .75rem;
@@ -83,7 +92,10 @@ body{
     outline: none;
     padding: 1rem;
 }
-.app__content input{
+.app__lesson form button{
+    margin-left: 1rem;
+}
+.app__lesson input{
     border: .2rem solid black;    
     border-radius: .75rem;
     font-size: 1rem;
@@ -104,6 +116,10 @@ body{
     font-style: italic;
     font-weight: bold;
 }
+.app__thai__question p:first-letter,
+.app__thai__answer   p:first-letter{
+    text-transform: uppercase;
+}
 .app__thai__question p:nth-of-type(2):before,
 .app__thai__answer   p:nth-of-type(2):before{
     content: "(";
@@ -115,4 +131,30 @@ body{
 .app__thai__question p:nth-of-type(2){
     margin-top: -40px;
 }
+.app__answer__right,
+.app__answer__wrong{
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+.app__answer__right{
+    background: #b9f18d;
+}
+.app__answer__wrong{
+    background: pink;
+}
+.app__tip:before{
+    background: white;
+    content: '👇 TIP';
+    margin-top: -3rem;
+    padding: 0.2rem;
+    position: absolute;
+}
+.app__tip{
+    border: 0.25rem solid #9cd5ff;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
 </style>
