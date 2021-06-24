@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 *{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

@@ -38,16 +38,30 @@ export default {
 </script>
 
 <style scoped>
-    .app__pagenavigation{
-        display: flex;
-        justify-content: space-between;
-        margin-top: auto;
+.app__pagenavigation{
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.app__pagenavigation a{
+    align-items: center;
+    border: .2rem solid black;
+    color: black;
+    border-radius: .75rem;
+    display: flex;
+    font-weight: bold;
+    margin-top: 5rem;   
+    padding: 1rem;
+    text-decoration: none;
+}
+.app__pagenavigation a svg{
+    margin: 0.3rem;
+}
+@media (hover: hover){
+    
+    .app__pagenavigation a:hover{
+        background: yellow;   
     }
-    button{
-        align-items: center;
-        display: flex;
-    }
-    button svg{
-        margin: 0.3rem;
-    }
+    
+}
 </style>

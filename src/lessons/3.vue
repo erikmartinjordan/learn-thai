@@ -10,6 +10,7 @@
             <div class = 'app__thai__answer'>
                 <p>{{ chan_pom }} ayu {{ age }} pi {{ ka_krub }}</p>
                 <p>I'm {{ age }} years old</p>
+                <playaudio  :chan_pom = "chan_pom" :text = "'ฉันอายุ' + age + 'ปี'" :ka_krub = "ka_krub"/>
             </div>
             <h2>Thai numbers</h2>
             <table>
@@ -65,7 +66,7 @@
             <form>
                 <h2>How is 20, then?</h2>
                 <input v-model = 'twenty' placeholder = 'Your answer...'/>
-                <button v-on:click = 'submit'>Check ➜</button>
+                <button v-on:click = 'submit'>Check</button>
             </form>
             <p class = 'app__answer__right' v-if = "submitted === 'right'">👌 Right, you are a master.</p>
             <p class = 'app__answer__wrong' v-if = "submitted === 'wrong'">🙃 Wrong, there are always excepctions. 20 is <em>yisib</em> in Thai.</p>
@@ -77,13 +78,12 @@
 <script>
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/antd.css'
+import playaudio from '../components/playaudio.vue'
 
 export default {
     name: 'lesson__3',
-    components: {
-        VueSlider
-    },
     props: ['ka_krub', 'chan_pom'],
+    components: { VueSlider, playaudio },
     methods: {
         submit(e){
 

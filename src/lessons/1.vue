@@ -14,6 +14,7 @@
             <div class = 'app__thai__answer'>
                 <p>{{ chan_pom }} chu {{ name }} {{ ka_krub }}</p>
                 <p>My name is {{ name }}</p>
+                <playaudio :chan_pom = "chan_pom" :text = "'ฉันชื่อ' + name" :ka_krub = "ka_krub"/>
             </div>
         </div>
         <div v-if = 'name'>
@@ -29,9 +30,12 @@
 </template>
 
 <script>
+import playaudio from '../components/playaudio.vue'
+
 export default {
     name: 'lesson__1',
     props: ['ka_krub', 'chan_pom', 'select'],
+    components: { playaudio },
     data(){
         return {
             name : ''

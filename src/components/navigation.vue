@@ -30,7 +30,8 @@ export default {
     overflow-y: auto;
     padding: 2rem;
     position: sticky;
-    width: 15%;
+    top: 0;
+    width: 18rem;
 }
 .app__navigation ul{
     display: flex;
