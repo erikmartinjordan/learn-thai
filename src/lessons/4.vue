@@ -14,7 +14,7 @@
             <button @click = "beverage_th = 'nom',           beverage_en = 'milk',      beverage_TH = 'นม'">🥛</button>
             <button @click = "beverage_th = 'chaa',          beverage_en = 'tea',       beverage_TH = 'ชา'">🍵</button>
         </div>
-        <p class = 'app__tip'>Be always polite and say <em>kob kun {{ ka_krub }}</em> after purchasing. Look how Thai people don't change the tone when asking for something. They use the word <em>noi</em> instead.</p>
+        <p class = 'app__tip'>Look how Thai people don't change the tone when asking for something. They use the word <em>noi</em> instead.</p>
     </div>
 </template>
 

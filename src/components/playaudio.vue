@@ -12,7 +12,7 @@
 <script>
 import spinner from './spinner.vue'
 
-export default{
+export default {
     props: ['text', 'chan_pom', 'ka_krub'],
     components: { spinner },
     methods: {

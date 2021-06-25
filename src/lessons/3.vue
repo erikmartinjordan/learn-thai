@@ -70,6 +70,7 @@
             </form>
             <p class = 'app__answer__right' v-if = "submitted === 'right'">👌 Right, you are a master.</p>
             <p class = 'app__answer__wrong' v-if = "submitted === 'wrong'">🙃 Wrong, there are always excepctions. 20 is <em>yisib</em> in Thai.</p>
+            <p class = 'app__tip' v-if = "submitted">Numbers ended at one are exceptions: 11 is <em>sib-ed</em>, 21 is <em>yisib-ed</em>, 31 is <em>samsib-ed</em>... </p>
         </div>
         </div>
     </div>
@@ -91,7 +92,7 @@ export default {
 
             let twenty_normalized = this.twenty.toLowerCase();
 
-            if(twenty_normalized !== 'yisib' && twenty_normalized !== 'yi-sib' && twenty_normalized !== 'yisip' && twenty_normalized !== 'jisip')
+            if(twenty_normalized !== 'jisib' && twenty_normalized !== 'yisib' && twenty_normalized !== 'yi-sib' && twenty_normalized !== 'yisip' && twenty_normalized !== 'jisip')
                 this.submitted = 'wrong'
             else
                 this.submitted = 'right'
