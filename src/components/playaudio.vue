@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import spinner from './spinner.vue'
+import spinner   from './spinner.vue'
+import normalize from '../functions/normalize'
 
 export default {
     props: ['text', 'chan_pom', 'ka_krub'],
@@ -20,13 +21,7 @@ export default {
 
             this.loading = true
 
-            var adapted_text = this.text
-
-            if(this.chan_pom)
-                adapted_text = this.chan_pom === 'pom' ? adapted_text.replace('ฉัน', 'ผม') : adapted_text.replace('ผม', 'ฉัน')
-
-            if(this.ka_krub)
-                adapted_text = this.ka_krub === 'krub' ? adapted_text + 'ครับ' : adapted_text + 'ค่ะ'
+            var adapted_text = normalize(this.text, this.chan_pom, this.ka_krub)
 
             const request = {
                 "engine": "Google",

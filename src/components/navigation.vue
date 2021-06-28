@@ -1,7 +1,10 @@
 <template>
     <div class = 'app__navigation'>
         <ul>
-            <router-link v-for = 'n in total_lessons' :key = 'n' :to = "`/lesson/${n}`">Day {{ n }}</router-link>
+            <router-link v-for = 'n in total_lessons' :key = 'n' :to = "`/lesson/${n}`">
+                <span v-if = "n % 8 !== 0">Day {{ n }}</span>
+                <span v-if = "n % 8 === 0">Day {{ n }} (test {{ n - 7}} to {{ n - 1}}) ✨</span>
+            </router-link>
         </ul>
         <div class = 'app__info'>
             Made with ♥ from Barcelona by Erik Martín, view on GitHub

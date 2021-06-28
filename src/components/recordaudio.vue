@@ -1,9 +1,15 @@
 <template>
     <div class = 'Line'>
-        <span>{{ text[0] }}</span>
-        <span>{{ transcript }}</span>
-        <button @click = 'iniSpeech' class = 'start' v-if = "!recording"></button>
-        <button @click = 'endSpeech' class = 'stop'  v-if = "recording"></button>
+        <div class = 'Left'><span>{{ text[0] }}</span></div>
+        <div class = 'Center'><span>{{ transcript }}</span></div>
+        <div class = 'Right'>
+            <button @click = 'iniSpeech' class = 'start' v-if = "!recording && !correct" ><img :src = 'mic'/></button>
+            <button @click = 'endSpeech' class = 'stop'  v-if = "recording  && !correct"></button>
+            <svg v-if = "correct" class = 'checkmark' xmlns = 'http://www.w3.org/2000/svg' viewBox = '0 0 52 52'>
+                <circle class = 'checkmark__circle' cx = '26' cy = '26' r = '25' fill = 'none'/>
+                <path class = 'checkmark__check' fill = 'none' d = 'M14.1 27.2l7.1 7.2 16.7-16.8'/>
+            </svg>
+        </div>
     </div>
 </template>
 
@@ -23,8 +29,22 @@ export default {
                 
                 this.transcript = e.results[0][0].transcript
 
+                console.log(this.text[1], this.transcript)
+
                 if(this.transcript === this.text[1]){
+                    
                     this.$emit('correct_answer', this.transcript)
+                    
+                    this.correct = true
+                    
+                    let audio = new Audio(this.coin)
+
+                    audio.play()
+                }
+                else{
+
+                    this.endSpeech()
+
                 }
 
             }
@@ -45,8 +65,11 @@ export default {
     },
     data(){
         return{
+            correct: false,
             recording: false,
-            transcript: ''
+            transcript: '',
+            mic: require('../assets/mic.svg'),
+            coin: require('../assets/coin.mp3')
         }
     }
 
@@ -57,35 +80,80 @@ export default {
 .Line{
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 1rem;
+    text-align: center;
     width: 100%;
 }
-button.start{
+.Line .Left{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.Line .Center{
+    width: 100%;
+}
+.Line .Right{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+button.start,
+button.stop{
+    align-items: center;
     animation: soft_out 0.5s;
-    background: red;
-    border: 0.15rem solid white;
-    box-shadow: 0 0 0 0.15rem black; 
+    background: #f03;
+    border: none;
     border-radius: 50%;
-    height: 1rem;
-    padding: 0;
-    width: 1rem;
+    color: white;
+    display: flex;
+    height: 2rem;
+    justify-content: center;
+    width: 2rem;
 }
 button.stop{
-    animation: soft_in 0.5s;
-    background: red;
-    border: 0.15rem solid white;
-    box-shadow: 0 0 0 0.15rem black; 
-    border-radius: 0.1rem;
-    height: 1rem;
-    padding: 0;
-    width: 1rem;
+    animation: pulse 1s infinite;
 }
-@keyframes soft_in {
-    0%   {border-radius: 50%;}
-    100% {border-radius: 0.1rem;}
+.checkmark {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: white;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #42a1ec;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
 }
-@keyframes soft_out {
-    0%   {border-radius: 0.1rem;}
-    100% {border-radius: 50%;}
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #42a1ec;
+    fill: none;
+    animation: stroke .6s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke .3s cubic-bezier(0.650, 0.000, 0.450, 1.000) forwards;
+}
+@keyframes stroke {
+  100% {stroke-dashoffset: 0;}
+}
+@keyframes scale {
+   0%, 100% {transform: none;}
+   50% {transform: scale3d(1.1, 1.1, 1);}
+}
+@keyframes fill {
+   100% {box-shadow: inset 0px 0px 0px 30px #42a1ec;}
+}
+@keyframes pulse {
+    0%   {box-shadow: 0 0 0 0    rgba(255, 0, 51, 0.4);}
+    70%  {box-shadow: 0 0 0 1rem rgba(255, 0, 51, 0);}
+    100% {box-shadow: 0 0 0 0    rgba(255, 0, 51, 0);}
 }
 </style>

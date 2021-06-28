@@ -24,7 +24,6 @@
             <p>Today I will stay at home</p>
             <playaudio text = "วันนี้ฉันจะอยู่บ้าน" :chan_pom = "chan_pom" :ka_krub = "ka_krub"/>
         </div>
-        <input type="text" x-webkit-speech />
     </div>
 </template>
 
