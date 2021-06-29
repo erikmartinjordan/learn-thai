@@ -8,8 +8,6 @@ const normalize = (input, chan_pom, ka_krub) => {
     if(ka_krub)
         output = ka_krub === 'krub' ? output + 'ครับ' : output + 'ค่ะ'
 
-    console.log(output)
-
     return output
 
 }

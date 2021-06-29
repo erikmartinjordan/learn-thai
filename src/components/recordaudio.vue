@@ -1,15 +1,13 @@
 <template>
-    <div class = 'Line'>
-        <div class = 'Left'><span>{{ text[0] }}</span></div>
-        <div class = 'Center'><span>{{ transcript }}</span></div>
-        <div class = 'Right'>
-            <button @click = 'iniSpeech' class = 'start' v-if = "!recording && !correct" ><img :src = 'mic'/></button>
-            <button @click = 'endSpeech' class = 'stop'  v-if = "recording  && !correct"></button>
-            <svg v-if = "correct" class = 'checkmark' xmlns = 'http://www.w3.org/2000/svg' viewBox = '0 0 52 52'>
-                <circle class = 'checkmark__circle' cx = '26' cy = '26' r = '25' fill = 'none'/>
-                <path class = 'checkmark__check' fill = 'none' d = 'M14.1 27.2l7.1 7.2 16.7-16.8'/>
-            </svg>
-        </div>
+    <div class = 'app__record'>
+        <div class = 'app__question'>{{ question }}</div>
+        <span>{{ transcript }}</span>
+        <button @click = 'iniSpeech' class = 'start' v-if = "!recording && !correct" ><img :src = 'mic'/></button>
+        <button @click = 'endSpeech' class = 'stop'  v-if = "recording  && !correct"></button>
+        <svg v-if = "correct" class = 'checkmark' xmlns = 'http://www.w3.org/2000/svg' viewBox = '0 0 52 52'>
+            <circle class = 'checkmark__circle' cx = '26' cy = '26' r = '25' fill = 'none'/>
+            <path class = 'checkmark__check' fill = 'none' d = 'M14.1 27.2l7.1 7.2 16.7-16.8'/>
+        </svg>
     </div>
 </template>
 
@@ -19,27 +17,28 @@ recognition.lang = 'th-TH'
 
 export default {
     name: 'recordaudio',
-    props: ['text'],
+    props: ['question', 'answer'],
     emits: ['correct_answer'],
     methods: {
 
         iniSpeech(){
 
-            recognition.onresult = e => {
+            recognition.onresult = async e => {
                 
                 this.transcript = e.results[0][0].transcript
 
-                console.log(this.text[1], this.transcript)
-
-                if(this.transcript === this.text[1]){
+                if(this.transcript === this.answer){
                     
-                    this.$emit('correct_answer', this.transcript)
+                    this.$emit('correct_answer', this.question)
                     
                     this.correct = true
                     
                     let audio = new Audio(this.coin)
 
                     audio.play()
+
+                    setTimeout(() => this.reset(), 2000)
+
                 }
                 else{
 
@@ -60,6 +59,13 @@ export default {
 
             this.recording = false
 
+        },
+        reset(){
+
+            this.correct = false
+            this.recording = false
+            this.transcript = ''
+
         }
 
     },
@@ -68,8 +74,8 @@ export default {
             correct: false,
             recording: false,
             transcript: '',
-            mic: require('../assets/mic.svg'),
-            coin: require('../assets/coin.mp3')
+            mic: require('../assets/mic.svg').default,
+            coin: require('../assets/coin.mp3').default
         }
     }
 
@@ -77,26 +83,19 @@ export default {
 </script>
 
 <style scoped>
-.Line{
+.app__record{
     align-items: center;
     display: flex;
+    flex-direction: column;
+    height: 100vh;
     justify-content: center;
     margin-bottom: 1rem;
     text-align: center;
     width: 100%;
 }
-.Line .Left{
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-}
-.Line .Center{
-    width: 100%;
-}
-.Line .Right{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
+.app__question{
+    font-size: 3rem;
+    font-weight: 700;
 }
 button.start,
 button.stop{
@@ -107,9 +106,9 @@ button.stop{
     border-radius: 50%;
     color: white;
     display: flex;
-    height: 2rem;
+    height: 4rem;
     justify-content: center;
-    width: 2rem;
+    width: 4rem;
 }
 button.stop{
     animation: pulse 1s infinite;

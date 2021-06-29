@@ -1,9 +1,12 @@
 import { createApp }                      from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import App                                from './App.vue'
+import routerview                         from './components/routerview.vue'
+import start                              from './components/start.vue'
+import question                           from './components/question.vue'
 
 const routes = [
-    {path: '/lesson/:string', component: App},
+    {path: '/',         component: start},
+    {path: '/question', component: question}
 ]
 
 const router = createRouter({
@@ -11,5 +14,4 @@ const router = createRouter({
     routes
 })
 
-
-createApp(App).use(router).mount('#app')
+createApp(routerview).use(router).mount('#app')
