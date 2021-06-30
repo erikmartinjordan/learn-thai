@@ -2,19 +2,19 @@
     <div class = 'app__speech_recognition'>
         <recordaudio :question = 'question' :answer = 'answer' @correct_answer = 'increase'/>
     </div>
-    <div class = 'app__points' v-if = 'points'>
-        {{ points }} 🌶️  
-    </div>
+    <controlbar :points = 'points'/>
+    <button @click = "increase('kaka')">Increase</button>
 </template>
 
 <script>
 import recordaudio from './recordaudio.vue'
+import controlbar  from './controlbar.vue'
 import questions   from '../lessons/questions'
 import shuffle     from '../functions/shuffle'
 
 export default {
     name: 'question',
-    components: { recordaudio },
+    components: { recordaudio, controlbar },
     methods: {
         increase(question){
 
@@ -57,8 +57,10 @@ export default {
         }
     },
     mounted(){
+
         this.getRandomQuestion()
         this.getNumberOfPoints()
+
     },
     data(){
         return {
@@ -69,16 +71,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.app__points{
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5rem;
-    bottom: 20px;
-    color: white;
-    left: 50%;
-    padding: 0.5rem 2rem;
-    position: fixed;
-    transform: translateX(-50%);
-}
-</style>
