@@ -26,6 +26,18 @@ export default {
     "How was your work today": {
         "translation": `วันนี้คุณทำงานเป็นอย่างไรบ้าง`
     },
+    "Nice to meet you": {
+        "translation": `ยินดีที่ได้รู้จัก`
+    },
+    "Could you talk slower": {
+        "translation": `คุณช่วยพูดช้าลงหน่อยได้ไหม`
+    },
+    "Can you help me?": {
+        "translation": `คุณสามารถช่วยฉันได้ไหม`
+    },
+    "Come with me": {
+        "translation": `มากับฉัน`
+    },
     "I live in Bangkok": {
         "translation": normalize(`ฉันอยู่กรุงเทพ`, chan_pom)
     },

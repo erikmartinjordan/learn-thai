@@ -7,7 +7,7 @@
                 <button @click = "select('w')" :class = "gender === 'w' ? 'Selected' : null">👩</button>
                 <button @click = "select('m')" :class = "gender === 'm' ? 'Selected' : null">👨</button>
             </div>
-            <router-link class = 'app__start' to = "/question">Start learning</router-link>
+            <a class = 'app__start' href = "/question">Start learning</a>
         </div>
     </div>
 </template>

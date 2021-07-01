@@ -15,6 +15,7 @@
 import stringSimilarity from "string-similarity"
 
 var recognition = new window.webkitSpeechRecognition()
+recognition.continous = true
 recognition.lang = 'th-TH'
 
 export default {
@@ -28,8 +29,6 @@ export default {
             recognition.onresult = async e => {
                 
                 this.transcript = e.results[0][0].transcript
-
-                console.log('Correlation ' + stringSimilarity.compareTwoStrings(this.transcript, this.answer) )
 
                 if(stringSimilarity.compareTwoStrings(this.transcript, this.answer) > 0.8){
                     
@@ -81,8 +80,27 @@ export default {
             mic: require('../assets/mic.svg').default,
             coin: require('../assets/coin.mp3').default
         }
-    }
+    },
+    mounted() {
 
+        window.addEventListener('keypress', e => {
+
+            if(!this.recording && e.key === ' ') {
+
+                this.iniSpeech()
+                return
+            }
+            
+            if(this.recording && e.key === ' '){
+
+                this.endSpeech()
+                return
+
+            }
+
+        })
+
+    }
 }
 </script>
 

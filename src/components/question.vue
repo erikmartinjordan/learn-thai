@@ -1,5 +1,5 @@
 <template>
-    <controlbar :points = 'points'/>
+    <controlbar :points = 'points' :sentences = 'sentences'/>
     <div class = 'app__speech_recognition'>
         <recordaudio :question = 'question' :answer = 'answer' @correct_answer = 'increase'/>
         <playaudio   :text = 'answer'/>
@@ -22,8 +22,15 @@ export default {
             localStorage.setItem('points', ~~localStorage.points    + 1 || 1)
             localStorage.setItem(question, ~~localStorage[question] + 1 || 1)
             
-            setTimeout(() => this.getNumberOfPoints(), 0)
+            this.getNumberOfSentences()
+            this.getNumberOfPoints()
+
             setTimeout(() => this.getRandomQuestion(), 2000)
+
+        },
+        getNumberOfSentences(){
+
+            this.sentences = Object.keys(localStorage).reduce((acc, key) => acc = questions[key] ? acc + 1 : acc, 0)
 
         },
         getNumberOfPoints(){
@@ -61,13 +68,25 @@ export default {
 
         this.getRandomQuestion()
         this.getNumberOfPoints()
+        this.getNumberOfSentences()
+
+        window.addEventListener('keypress', e => {
+
+            if(e.key === 'n') {
+
+                this.getRandomQuestion()
+                
+            }
+
+        })
 
     },
     data(){
         return {
             question: '',
             answer: '',
-            points: ''
+            points: '',
+            sentences: ''
         }
     }
 }

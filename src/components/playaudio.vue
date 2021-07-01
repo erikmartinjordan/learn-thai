@@ -65,6 +65,17 @@ export default {
     },
     data(){
         return {loading: false}
+    },
+    mounted() {
+
+        window.addEventListener('keypress', e => {
+
+            if(e.key === 'Enter') 
+                this.playSound()
+
+
+        })
+
     }
 }
 </script>
