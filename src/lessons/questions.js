@@ -23,6 +23,15 @@ export default {
     "Where will you go today": {
         "translation": `วันนี้จะไปไหน`
     },
+    "How was your work today": {
+        "translation": `วันนี้คุณทำงานเป็นอย่างไรบ้าง`
+    },
+    "I live in Bangkok": {
+        "translation": normalize(`ฉันอยู่กรุงเทพ`, chan_pom)
+    },
+    "I feel bored":{
+        "translation": normalize(`ฉันรู้สึกเบื่อ`, chan_pom)
+    },
     "Today I will stay at home": {
         "translation": normalize(`วันนี้ฉันจะอยู่บ้าน`, chan_pom, ka_krub)
     },

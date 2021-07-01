@@ -1,28 +1,29 @@
 <template>
+    <controlbar :points = 'points'/>
     <div class = 'app__speech_recognition'>
         <recordaudio :question = 'question' :answer = 'answer' @correct_answer = 'increase'/>
+        <playaudio   :text = 'answer'/>
     </div>
-    <controlbar :points = 'points'/>
-    <button @click = "increase('kaka')">Increase</button>
 </template>
 
 <script>
 import recordaudio from './recordaudio.vue'
+import playaudio   from './playaudio.vue'
 import controlbar  from './controlbar.vue'
 import questions   from '../lessons/questions'
 import shuffle     from '../functions/shuffle'
 
 export default {
     name: 'question',
-    components: { recordaudio, controlbar },
+    components: { recordaudio, playaudio, controlbar },
     methods: {
         increase(question){
 
             localStorage.setItem('points', ~~localStorage.points    + 1 || 1)
             localStorage.setItem(question, ~~localStorage[question] + 1 || 1)
-
-            this.getNumberOfPoints()
-            this.getRandomQuestion()
+            
+            setTimeout(() => this.getNumberOfPoints(), 0)
+            setTimeout(() => this.getRandomQuestion(), 2000)
 
         },
         getNumberOfPoints(){

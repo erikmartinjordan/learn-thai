@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import stringSimilarity from "string-similarity"
+
 var recognition = new window.webkitSpeechRecognition()
 recognition.lang = 'th-TH'
 
@@ -27,7 +29,9 @@ export default {
                 
                 this.transcript = e.results[0][0].transcript
 
-                if(this.transcript === this.answer){
+                console.log('Correlation ' + stringSimilarity.compareTwoStrings(this.transcript, this.answer) )
+
+                if(stringSimilarity.compareTwoStrings(this.transcript, this.answer) > 0.8){
                     
                     this.$emit('correct_answer', this.question)
                     
