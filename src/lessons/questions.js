@@ -36,7 +36,19 @@ export default {
         "translation": `คุณสามารถช่วยฉันได้ไหม`
     },
     "Come with me": {
-        "translation": `มากับฉัน`
+        "translation": normalize(`มากับฉัน`, chan_pom)
+    },
+    "It's going to rain": {
+        "translation": `ฝนกำลังจะตก`
+    },
+    "Have you ever been in Barcelona?": {
+        "translation": `คุณเคยไปบาร์เซโลน่าไหม`
+    },
+    "Have you ever seen elephants": {
+        "translation": `คุณเคยเห็นช้างไหม`
+    },
+    "I eat potato": {
+        "translation": normalize(`ฉันกินมันฝรั่ง`, chan_pom)
     },
     "I live in Bangkok": {
         "translation": normalize(`ฉันอยู่กรุงเทพ`, chan_pom)
