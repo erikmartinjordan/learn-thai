@@ -1,13 +1,36 @@
 <template>
     <div class = 'app__controlbar' v-if = 'points'>
-        <span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-            <span :class = 'animation_1'>{{ points }}</span> points
-        </span>
-        <span> 
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>            
-            <span :class = 'animation_2'>{{ sentences }}</span> sentence<text v-if = "sentences > 1">s</text> <span>learnt</span>
-        </span>
+        <div class = 'app__controlbar__elem'>
+            <div @mouseover = "tooltip_1 = true" @mouseleave = "tooltip_1 = false">
+                <img  :src = 'shiny'/>
+                <span :class = 'animation_1'>{{ points }} points</span>
+            </div>
+            <transition name = "appear">
+                <span v-if = "tooltip_1" class = 'tooltip'>A correct sentence equals to 1 point</span>
+            </transition>
+        </div>
+        <div class = 'app__controlbar__elem'>
+            <div @mouseover = "tooltip_2 = true" @mouseleave = "tooltip_2 = false"> 
+                <img  :src = 'cap'/>           
+                <span :class = 'animation_2'>{{ sentences }} sentence<text v-if = "sentences > 1">s</text></span>
+            </div>
+            <transition name = "appear">
+                <span v-if = "tooltip_2" class = 'tooltip'>Number of unique sentences learnt</span>
+            </transition>
+        </div>
+        <div class = 'app__controlbar__elem'> 
+            <div @mouseover = "tooltip_3 = true" @mouseleave = "tooltip_3 = false">
+                <img  :src = 'shortcut'/>
+                <span>shortcuts</span>
+            </div>
+            <transition name = "appear">
+                <div v-if = "tooltip_3" class = 'tooltip'>
+                    <span><kbd>enter</kbd> reproduce sound</span>
+                    <span><kbd>spacebar</kbd> start recording</span>
+                    <span><kbd>n</kbd> next sentence</span>
+                </div>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -37,8 +60,6 @@ export default{
 
             if(props.sentences){
 
-                console.log(props.sentences)
-
                 animation_2.value = 'app__points__animated'
 
                 setTimeout(() => {animation_2.value = ''}, 700)
@@ -49,37 +70,104 @@ export default{
 
         return { animation_1, animation_2 }
 
+    },
+    data(){
+        return {
+            tooltip_1: false,
+            tooltip_2: false,
+            tooltip_3: false,
+            shiny: require('../assets/shiny.svg').default,
+            cap: require('../assets/cap.svg').default,
+            shortcut: require('../assets/shortcut.svg').default
+        }
     }
 }
 </script>
 
 <style scoped>
 .app__controlbar{
-    background: rgba(0, 0, 0, 0.5);
+    background: white;
     border-radius: 5rem;
-    font-size: 0.75rem;
+    border: 0.1rem solid rgba(1, 1, 1, 0.2);
     bottom: 2rem;
-    color: white;
+    box-shadow: rgb(0 0 0 / 4%) 0px 4px 10px;
+    color: hsl(207, 14%, 36%);
+    cursor: default;
+    font-size: 0.75rem;
     display: flex;
     left: 50%;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 0.2rem;
     position: fixed;
     transform: translateX(-50%);
 }  
-.app__controlbar span{
+.app__controlbar__elem{
     align-items: center;
     display: inline-flex;
     margin: 0 0.5rem;
+    position: relative;
+}
+.app__controlbar__elem div{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 .app__points__animated{
     animation: slide-up 0.3s cubic-bezier(0.65, 0, 0.35, 1) both;
     display: inline-block;
 }
-.app__controlbar svg{
+.app__controlbar img{
     height: 1rem;
+    margin-right: 0.1rem;
+}
+.app__controlbar .tooltip{
+    align-items: flex-start;
+    background: white;
+    border: 0.1rem solid rgba(1, 1, 1, 0.2);
+    border-radius: 0.5rem;
+    bottom: 0;
+    box-shadow: rgb(0 0 0 / 4%) 0px 4px 10px;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    padding: 0.5rem 0.2rem;
+    position: absolute;
+    transform: translate(-50%, -40px);
+    width: max-content;
+}
+kbd{
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: text-bottom;
+    background-color: #fafbfc;
+    border: solid 1px #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #959da5;
+}
+.appear-enter-active {
+    animation: appear 0.3s forwards;
+}
+.appear-leave-active{
+    animation: appear 0.3s reverse;
+}
+@media (max-width: 600px) {
+    .app__controlbar{
+        bottom: auto;
+        top: 2rem;
+    }
+    .app__shortcuts{
+        display: none !important;
+    }
 }
 @keyframes slide-up{
   0%  { transform: translateY(100px);}
   100%{ transform: translateY(0);}
+}
+@keyframes appear{
+  0%  { transform: translate(-50%, -30px); opacity: 0;}
+  100%{ transform: translate(-50%, -40px); opacity: 1;}
 }
 </style>

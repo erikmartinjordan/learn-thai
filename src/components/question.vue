@@ -1,6 +1,6 @@
 <template>
     <controlbar :points = 'points' :sentences = 'sentences'/>
-    <div class = 'app__speech_recognition'>
+    <div class = 'app__speech__recognition'>
         <recordaudio :question = 'question' :answer = 'answer' @correct_answer = 'increase'/>
         <playaudio   :text = 'answer'/>
     </div>
@@ -91,3 +91,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.app__speech__recognition{
+    display: flex;
+    height: 100vh;
+    padding: 1rem;
+}
+</style>

@@ -32,12 +32,6 @@ export default {
     "Could you talk slower": {
         "translation": `คุณช่วยพูดช้าลงหน่อยได้ไหม`
     },
-    "Can you help me?": {
-        "translation": `คุณสามารถช่วยฉันได้ไหม`
-    },
-    "Come with me": {
-        "translation": normalize(`มากับฉัน`, chan_pom)
-    },
     "It's going to rain": {
         "translation": `ฝนกำลังจะตก`
     },
@@ -46,6 +40,45 @@ export default {
     },
     "Have you ever seen elephants": {
         "translation": `คุณเคยเห็นช้างไหม`
+    },
+    "Last week": {
+        "translation": `อาทิตย์ที่แล้ว`
+    },
+    "Last month": {
+        "translation": `เดือนที่แล้ว`
+    },
+    "Last year": {
+        "translation": `ปีที่แล้ว`
+    },
+    "When is your birthday?": {
+        "translation": `วันเกิดคุณเมื่อไหร่`
+    },
+    "Happy birthday":{
+        "translation": `สุขสันต์วันเกิด`
+    },
+    "Today I went for a walk": {
+        "translation": normalize(`วันนี้ฉันไปเดินเล่น`, chan_pom)
+    },
+    "I went walking into the jungle": {
+        "translation": normalize(`ฉันเดินเข้าป่า`, chan_pom)
+    },
+    "I bought something for you": {
+        "translation": normalize(`ฉันซื้อของมาให้คุณ`, chan_pom)
+    },
+    "Last week I went to a birthday party": {
+        "translation": normalize(`อาทิตย์ที่แล้วฉันไปงานเลี้ยงวันเกิด`, chan_pom)
+    },
+    "Can you help me?": {
+        "translation": normalize(`คุณสามารถช่วยฉันได้ไหม`, chan_pom)
+    },
+    "I bought a new TV last week": {
+        "translation": normalize(`ฉันซื้อทีวีเครื่องใหม่เมื่อสัปดาห์ที่แล้ว`, chan_pom)
+    },
+    "Last week I went to Pattaya": {
+        "translation": normalize(`อาทิตย์ที่แล้วฉันไปพัทยา`, chan_pom)
+    },
+    "Come with me": {
+        "translation": normalize(`มากับฉัน`, chan_pom)
     },
     "I eat potato": {
         "translation": normalize(`ฉันกินมันฝรั่ง`, chan_pom)

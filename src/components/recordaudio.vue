@@ -109,15 +109,15 @@ export default {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: center;
-    margin-bottom: 1rem;
     text-align: center;
     width: 100%;
 }
 .app__question{
     font-size: 3rem;
     font-weight: 700;
+    line-height: 3rem;
+    margin-bottom: 2rem;
 }
 button.start,
 button.stop{
