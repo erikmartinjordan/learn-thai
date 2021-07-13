@@ -56,6 +56,12 @@ export default {
     "Happy birthday":{
         "translation": `สุขสันต์วันเกิด`
     },
+    "I want to break up": {
+        "translation": normalize(`ฉันอยากเลิก`, chan_pom)
+    },
+    "I'm not single": {
+        "translation": normalize(`ฉันไม่โสด`, chan_pom)
+    },
     "Today I went for a walk": {
         "translation": normalize(`วันนี้ฉันไปเดินเล่น`, chan_pom)
     },
