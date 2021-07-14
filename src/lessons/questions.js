@@ -56,6 +56,18 @@ export default {
     "Happy birthday":{
         "translation": `สุขสันต์วันเกิด`
     },
+    "Did you get the vaccine?": {
+        "translation": `คุณได้รับวัคซีนแล้ว`
+    },
+    "Grandad has cancer": {
+        "translation": `ปู่เป็นมะเร็ง`
+    },
+    "The Earth is beautiful": {
+        "translation": `โลกสวย`
+    },
+    "I miss everyone":{
+        "translation": normalize(`ฉันคิดถึงทุกคน`, chan_pom)
+    }, 
     "I want to break up": {
         "translation": normalize(`ฉันอยากเลิก`, chan_pom)
     },
