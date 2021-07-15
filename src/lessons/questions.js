@@ -59,11 +59,17 @@ export default {
     "Did you get the vaccine?": {
         "translation": `คุณได้รับวัคซีนแล้ว`
     },
-    "Grandad has cancer": {
-        "translation": `ปู่เป็นมะเร็ง`
+    "Grandma has cancer": {
+        "translation": `คุณยายเป็นมะเร็ง`
     },
     "The Earth is beautiful": {
         "translation": `โลกสวย`
+    },
+    "Get well soon": {
+        "translation": `หายเร็วๆนะ`
+    },
+    "Take care yourself": {
+        "translation": `ดูแลตัวเองด้วย`
     },
     "I miss everyone":{
         "translation": normalize(`ฉันคิดถึงทุกคน`, chan_pom)
