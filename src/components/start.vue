@@ -32,6 +32,16 @@ export default {
             this.chan_pom = localStorage.gender === 'm' ? 'pom'  : 'chan'
 
         }
+    },
+    beforeMount(){
+        
+        if(localStorage.gender){
+
+            this.select(localStorage.gender)
+            window.location.href = '/question'
+
+        }
+
     }
 
 }
