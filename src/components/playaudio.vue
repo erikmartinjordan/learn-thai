@@ -67,6 +67,8 @@ export default {
 
         window.addEventListener('keypress', e => {
 
+            if(e.target.matches('input')) return;
+
             if(e.key === 'Enter') 
                 this.playSound()
 

@@ -28,6 +28,7 @@
                     <span><kbd>enter</kbd> reproduce sound</span>
                     <span><kbd>spacebar</kbd> start recording</span>
                     <span><kbd>n</kbd> next sentence</span>
+                    <span><kbd>f</kbd> find sentence</span>
                 </div>
             </transition>
         </div>

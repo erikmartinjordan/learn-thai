@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import stringSimilarity from "string-similarity"
+import stringSimilarity from 'string-similarity'
 
 var recognition = new window.webkitSpeechRecognition()
 recognition.continous = true
@@ -84,6 +84,8 @@ export default {
     mounted() {
 
         window.addEventListener('keypress', e => {
+
+            if(e.target.matches('input')) return;
 
             if(!this.recording && e.key === ' ') {
 

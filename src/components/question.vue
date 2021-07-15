@@ -1,21 +1,23 @@
 <template>
-    <controlbar :points = 'points' :sentences = 'sentences'/>
+    <searchbar @query = 'setQuestion'/>
     <div class = 'app__speech__recognition'>
         <recordaudio :question = 'question' :answer = 'answer' @correct_answer = 'increase'/>
         <playaudio   :text = 'answer'/>
     </div>
+    <controlbar :points = 'points' :sentences = 'sentences'/>
 </template>
 
 <script>
 import recordaudio from './recordaudio.vue'
 import playaudio   from './playaudio.vue'
 import controlbar  from './controlbar.vue'
+import searchbar   from './searchbar.vue'
 import questions   from '../lessons/questions'
 import shuffle     from '../functions/shuffle'
 
 export default {
     name: 'question',
-    components: { recordaudio, playaudio, controlbar },
+    components: { recordaudio, playaudio, controlbar, searchbar },
     methods: {
         increase(question){
 
@@ -62,6 +64,12 @@ export default {
 
             }
 
+        },
+        setQuestion(question){
+
+            this.question = question
+            this.answer   = questions[question].translation
+
         }
     },
     mounted(){
@@ -86,7 +94,7 @@ export default {
             question: '',
             answer: '',
             points: '',
-            sentences: ''
+            sentences: '',
         }
     }
 }
