@@ -155,10 +155,6 @@ kbd{
     animation: appear 0.3s reverse;
 }
 @media (max-width: 600px) {
-    .app__controlbar{
-        bottom: auto;
-        top: 2rem;
-    }
     .app__shortcuts{
         display: none !important;
     }

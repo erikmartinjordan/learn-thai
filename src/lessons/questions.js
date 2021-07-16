@@ -71,6 +71,21 @@ export default {
     "Take care yourself": {
         "translation": `ดูแลตัวเองด้วย`
     },
+    "You lie me": {
+        "translation": `คุณโกหก`
+    },
+    "Don't panic": {
+        "translation": `อย่าตื่นตระหนก`
+    },
+    "Don't start now": {
+        "translation": `อย่าเริ่มตอนนี้`    
+    },
+    "Don't forget": {
+        "translation": `อย่าลืม`    
+    },
+    "I'm an engineer": {
+        "translation": normalize(`ฉันเป็นวิศวกร`, chan_pom)
+    },
     "I miss everyone":{
         "translation": normalize(`ฉันคิดถึงทุกคน`, chan_pom)
     }, 
