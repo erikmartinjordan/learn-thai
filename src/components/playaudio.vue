@@ -17,46 +17,18 @@ export default {
 
             this.loading = true
 
+            await new Promise(r => setTimeout(r, 1000));
+
             var adapted_text = normalize(this.text, this.chan_pom, this.ka_krub)
 
-            const request = {
-                "engine": "Google",
-                "data": {
-                    "text": adapted_text,
-                    "voice": "th-TH"
-                }
-            }
+            var msg = new SpeechSynthesisUtterance(adapted_text)
 
-            const requestOptions = {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(request)
-            }
+            msg.lang  = 'th-TH'
+            msg.rate  = 0.8
 
-            const response = await fetch("https://api.soundoftext.com/sounds", requestOptions)
+            window.speechSynthesis.speak(msg)
 
-            if(response.ok){
-
-                const data = await response.json()
-                this.playMp3(data.id);
-
-            }
-
-        },
-        async playMp3(id){
-
-            const response = await fetch(`https://api.soundoftext.com/sounds/${id}`)
-            
-            if(response.ok){
-
-                const data = await response.json()
-                
-                var audio = new Audio(data.location)
-                audio.play()
-
-            }
-
-            this.loading = false
+            this.loading= false
 
         }
     },
