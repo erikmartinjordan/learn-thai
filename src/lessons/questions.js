@@ -83,6 +83,15 @@ export default {
     "Don't forget": {
         "translation": `อย่าลืม`    
     },
+    "What should I watch?": {
+        "translation": normalize(`ฉันควรดูอะไร`, chan_pom)
+    },
+    "What should I talk about?": {
+        "translation": normalize(`ฉันควรพูดอะไร`, chan_pom)
+    },
+    "What should I buy?":{
+        "translation": normalize(`ฉันควรซื้ออะไรดี`, chan_pom)
+    },
     "I'm an engineer": {
         "translation": normalize(`ฉันเป็นวิศวกร`, chan_pom)
     },
