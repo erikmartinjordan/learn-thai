@@ -83,6 +83,12 @@ export default {
     "Don't forget": {
         "translation": `อย่าลืม`    
     },
+    "I want to save money": {
+        "translation": normalize(`อยากออมเงิน`, chan_pom)
+    },
+    "How do I travel from Bangkok to Chiang Mai?": {
+        "translation": normalize(`เดินทางจากกรุงเทพฯ ไปเชียงใหม่อย่างไร?`, chan_pom)
+    },
     "What should I watch?": {
         "translation": normalize(`ฉันควรดูอะไร`, chan_pom)
     },
