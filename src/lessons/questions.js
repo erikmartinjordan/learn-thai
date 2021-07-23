@@ -77,11 +77,35 @@ export default {
     "Don't panic": {
         "translation": `อย่าตื่นตระหนก`
     },
-    "Don't start now": {
-        "translation": `อย่าเริ่มตอนนี้`    
+    "Start now": {
+        "translation": `เริ่มเลย`    
     },
     "Don't forget": {
         "translation": `อย่าลืม`    
+    },
+    "How is the weather?": {
+        "translation": `อากาศเป็นอย่างไร`
+    },
+    "How is the food?": {
+        "translation": `อาหารเป็นอย่างไร`
+    },
+    "How are you doing these days?": {
+        "translation": `เป็นไงบ้างช่วงนี้`    
+    },
+    "He is a pilot": {
+        "translation": `เขาเป็นนักบิน`    
+    },
+    "Can I have your hand": {
+        "translation": `ขอมือหน่อยได้ไหม`    
+    },
+    "Can I have the salt, please?": {
+        "translation": `ขอเกลือได้ไหม`
+    },
+    "Can I have the receipt, please?":{
+        "translation": normalize(`ฉันขอใบเสร็จได้ไหม`, chan_pom)
+    },
+    "I want to be a writer":{
+        "translation": normalize(`อยากเป็นนักเขียน`, chan_pom)
     },
     "I want to save money": {
         "translation": normalize(`อยากออมเงิน`, chan_pom)
