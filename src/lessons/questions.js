@@ -101,6 +101,15 @@ export default {
     "Can I have the salt, please?": {
         "translation": `ขอเกลือได้ไหม`
     },
+    "Shall we go swimming?": {
+        "translation": `ไปว่ายน้ำกันไหม`    
+    },
+    "Shall we go to bed?": {
+        "translation": `ไปนอนกันไหม`
+    },
+    "Shall we go to see a movie?": {
+        "translation": `ไปดูหนังกันไหม`    
+    },
     "Can I have the receipt, please?":{
         "translation": normalize(`ฉันขอใบเสร็จได้ไหม`, chan_pom)
     },
