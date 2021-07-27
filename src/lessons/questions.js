@@ -95,8 +95,8 @@ export default {
     "He is a pilot": {
         "translation": `เขาเป็นนักบิน`    
     },
-    "Can I have your hand": {
-        "translation": `ขอมือหน่อยได้ไหม`    
+    "Can I have your number?": {
+        "translation": `ขอเบอร์หน่อยได้ไหม`    
     },
     "Can I have the salt, please?": {
         "translation": `ขอเกลือได้ไหม`
@@ -109,6 +109,12 @@ export default {
     },
     "Shall we go to see a movie?": {
         "translation": `ไปดูหนังกันไหม`    
+    },
+    "And you?": {
+        "translation": normalize(`และคุณครับ`, ka_krub)
+    },
+    "I'm friend with John": {
+        "translation": normalize(`ฉันเป็นเพื่อนกับจอห์น`, chan_pom)
     },
     "Can I have the receipt, please?":{
         "translation": normalize(`ฉันขอใบเสร็จได้ไหม`, chan_pom)
