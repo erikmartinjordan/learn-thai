@@ -110,6 +110,15 @@ export default {
     "Shall we go to see a movie?": {
         "translation": `ไปดูหนังกันไหม`    
     },
+    "I go to make exercise everyday":{
+        "translation": normalize(`ฉันไปออกกำลังกายทุกวัน`, chan_pom)
+    },
+    "I will come tomorrow": {
+        "translation": normalize(`ฉันจะมาพรุ่งนี้`, chan_pom)
+    },
+    "I want to make you laugh": {
+        "translation": normalize(`ฉันอยากทำให้คุณหัวเราะ`, chan_pom)
+    },
     "And you?": {
         "translation": normalize(`และคุณครับ`, ka_krub)
     },
