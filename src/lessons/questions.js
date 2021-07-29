@@ -110,6 +110,24 @@ export default {
     "Shall we go to see a movie?": {
         "translation": `ไปดูหนังกันไหม`    
     },
+    "Thank you for visitng": {
+        "translation": `ขอบคุณที่มาเยี่ยมนะ`    
+    },
+    "Thank your for calling": {
+        "translation": `ขอบคุณที่โทรมา`    
+    },
+    "Thank you for your concern": {
+        "translation": `ขอบคุณที่เป็นห่วงนะ`    
+    },
+    "Thank you for loving me": {
+        "translation": `ขอบคุณที่รักกัน`    
+    },
+    "You don't listen me": {
+        "translation": normalize(`คุณไม่ฟังฉัน`, chan_pom)
+    },
+    "You are my girl": {
+        "translation": normalize(`คุณคือผู้หญิงของฉัน`, chan_pom)
+    },
     "I go to make exercise everyday":{
         "translation": normalize(`ฉันไปออกกำลังกายทุกวัน`, chan_pom)
     },
