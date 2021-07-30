@@ -122,6 +122,12 @@ export default {
     "Thank you for loving me": {
         "translation": `ขอบคุณที่รักกัน`    
     },
+    "I can't hear": {
+        "translation": normalize(`ฉันไม่ได้ยิน`, chan_pom)
+    },
+    "I'm not sure": {
+        "translation": normalize(`ฉันไม่แน่ใจ`, chan_pom)
+    },
     "You don't listen me": {
         "translation": normalize(`คุณไม่ฟังฉัน`, chan_pom)
     },
