@@ -57,7 +57,7 @@ export default {
         "translation": `สุขสันต์วันเกิด`
     },
     "Did you get the vaccine?": {
-        "translation": `คุณได้รับวัคซีนแล้ว`
+        "translation": `คุณได้รับวัคซีนแล้วหรือยัง`
     },
     "Grandma has cancer": {
         "translation": `คุณยายเป็นมะเร็ง`
